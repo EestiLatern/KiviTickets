@@ -1,0 +1,15 @@
+.env
+
+*.sql
+*.sql.gz
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+koodid/*
+!koodid/.gitkeep
