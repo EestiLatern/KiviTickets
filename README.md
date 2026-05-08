@@ -1,6 +1,6 @@
 # KiviTickets
 
-Bussipileti müügi- ja valideerimissüsteem. Võimaldab administraatoritel hallata sõite ja töötajatel müüa ning valideerida pileteid.
+Bussi- või rongipileti müügi- ja valideerimissüsteem. Võimaldab administraatoritel hallata sõite ja töötajatel müüa ning valideerida pileteid.
 
 ## Funktsioonid
 
@@ -15,7 +15,7 @@ Bussipileti müügi- ja valideerimissüsteem. Võimaldab administraatoritel hall
 ### 1. Klooni repositoorium
 
 ```bash
-git clone https://github.com/sinu-kasutaja/kivitickets.git
+git clone https://github.com/EestiLatern/KiviTickets
 cd kivitickets
 ```
 
@@ -41,7 +41,7 @@ Ava `.env` ja täida:
 ```
 DB_HOST=localhost
 DB_USER=sinu_kasutajanimi
-DB_PASSWORD=sinu_parool
+DB_PASSWORD=parool
 DB_NAME=kivitickets
 ```
 
