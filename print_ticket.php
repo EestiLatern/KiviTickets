@@ -102,17 +102,18 @@ if(!empty($mainTicket['to_zone_id'])) {
 <html lang="et">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pilet — <?= htmlspecialchars($qrCodeValue) ?></title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background: 
+body { font-family: Arial, sans-serif; background: #f5f5f5; }
 
 .a4-wrap { display: flex; justify-content: center; padding: 40px; }
 .a4-page {
-    background: 
+    background: #fff;
     width: 680px;
     font-size: 14px;
-    color: 
+    color: #000;
     padding: 40px 50px;
 }
 
@@ -132,7 +133,7 @@ body { font-family: Arial, sans-serif; background:
 .a4-field .lbl { font-weight: bold; width: 140px; flex-shrink: 0; }
 .a4-field .val { flex: 1; }
 .a4-qr-box {
-    border: 1px solid 
+    border: 1px solid #000;
     width: 130px;
     min-height: 145px;
     display: flex;
@@ -146,21 +147,21 @@ body { font-family: Arial, sans-serif; background:
 .a4-qr-box img { width: 100px; height: 100px; object-fit: contain; }
 .a4-qr-label { font-size: 10px; text-align: center; margin-top: 4px; word-break: break-all; }
 
-.a4-divider { border: none; border-top: 2px solid 
+.a4-divider { border: none; border-top: 2px solid #000; margin: 16px 0; }
 
 .a4-tickets-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
-.a4-tickets-list { font-size: 13px; margin-bottom: 6px; color: 
+.a4-tickets-list { font-size: 13px; margin-bottom: 6px; color: #444; }
 .a4-ticket-row {
     display: flex;
     justify-content: space-between;
     padding: 4px 0;
-    border-bottom: 1px solid 
+    border-bottom: 1px solid #eee;
     font-size: 14px;
 }
 
 .receipt-wrap { display: flex; justify-content: center; padding: 20px; }
 .receipt-ticket {
-    background: 
+    background: #fff;
     width: 302px;
     padding: 12px;
     font-family: 'Courier New', monospace;
@@ -170,7 +171,7 @@ body { font-family: Arial, sans-serif; background:
     font-size: 14px;
     text-align: center;
     margin-bottom: 8px;
-    border-bottom: 1px dashed 
+    border-bottom: 1px dashed #000;
     padding-bottom: 6px;
 }
 .receipt-ticket .info { margin-bottom: 4px; }
@@ -180,7 +181,7 @@ body { font-family: Arial, sans-serif; background:
 .receipt-ticket .footer {
     text-align: center;
     margin-top: 8px;
-    border-top: 1px dashed 
+    border-top: 1px dashed #000;
     padding-top: 6px;
     font-size: 10px;
 }
@@ -212,9 +213,48 @@ body { font-family: Arial, sans-serif; background:
     background: #f2f2f2; 
 }
 
+@media (max-width: 600px) {
+    body { background: #fff; }
+
+    .print-bar {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+    }
+    .print-bar button,
+    .print-bar a {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+        padding: 12px;
+        margin: 6px 0;
+        border-radius: 10px;
+    }
+
+    .a4-wrap { padding: 0; }
+    .a4-page { width: 100%; padding: 16px 12px; font-size: 15px; }
+    .a4-header { flex-direction: column; }
+    .a4-header h1 { font-size: 20px; margin-bottom: 14px; }
+    .a4-field { font-size: 15px; margin-bottom: 8px; flex-direction: column; }
+    .a4-field .lbl { width: auto; margin-bottom: 2px; }
+    .a4-qr-box { margin-left: 0; margin-top: 24px; width: 100%; padding: 16px; }
+    .a4-qr-box img { width: 200px; height: 200px; }
+    .a4-qr-label { font-size: 14px; margin-top: 8px; }
+    .a4-tickets-title { font-size: 17px; margin-bottom: 10px; }
+    .a4-ticket-row { font-size: 15px; padding: 7px 0; }
+
+    .receipt-wrap { padding: 0; }
+    .receipt-ticket { width: 100%; padding: 14px 12px; font-size: 14px; }
+    .receipt-ticket h1 { font-size: 18px; padding-bottom: 10px; margin-bottom: 12px; }
+    .receipt-ticket .info { margin-bottom: 10px; }
+    .receipt-ticket .code { font-size: 13px; margin: 8px 0; }
+    .receipt-ticket .qr img { width: 220px; }
+    .receipt-ticket .footer { font-size: 13px; padding-top: 10px; }
+}
+
 @media print {
     .print-bar { display: none; }
-    body { background: 
+    body { background: #fff; }
     .a4-wrap, .receipt-wrap { padding: 0; }
     <?php if($format === 'receipt'): ?>
     @page { size: 80mm auto; margin: 0; }
@@ -232,7 +272,6 @@ body { font-family: Arial, sans-serif; background:
         <a href="print_ticket.php?id=<?= $id ?>&format=receipt">Tšeki formaat (80mm)</a>
     <?php endif; ?>
     <button onclick="window.print()">🖨️ Prindi</button>
-    <a href="javascript:history.back()">← Tagasi</a>
 </div>
 
 <?php if($format === 'receipt'): ?>
