@@ -185,20 +185,32 @@ body { font-family: Arial, sans-serif; background:
     font-size: 10px;
 }
 
-.print-bar { text-align: center; padding: 20px; }
-.print-bar button, .print-bar a {
-    margin: 4px;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 1px solid 
-    background: 
-    border-radius: 4px;
-    text-decoration: none;
-    color: 
-    display: inline-block;
+.print-bar { 
+    text-align: center; 
+    padding: 20px; 
 }
-.print-bar button { background: 
+
+.print-bar button, 
+.print-bar a {
+    margin: 6px;
+    padding: 16px 24px;
+    font-size: 18px;
+    min-height: 52px;
+    cursor: pointer;
+    border: 1px solid #333;
+    background: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.print-bar button { 
+    background: #f2f2f2; 
+}
 
 @media print {
     .print-bar { display: none; }
