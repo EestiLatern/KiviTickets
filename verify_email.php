@@ -100,6 +100,62 @@ if (isset($_POST['verify'])) {
 require __DIR__ . '/includes/header.php';
 ?>
 
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main,
+.container,
+.card {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h2, p, label, strong, a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+#verify-form {
+  max-width: 100%;
+}
+
+.code-inputs {
+  display: flex;
+  gap: 0.45rem;
+  margin: 1rem auto;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.code-inputs input {
+  width: 3.2rem;
+  height: 4rem;
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+
+@media (max-width: 380px) {
+  .code-inputs {
+    gap: 0.3rem;
+  }
+
+  .code-inputs input {
+    width: 2.8rem;
+    height: 3.6rem;
+    font-size: 1.7rem;
+  }
+}
+</style>
+
 <h2>E-posti kinnitamine</h2>
 
 <?php if ($error): ?>
@@ -132,15 +188,11 @@ require __DIR__ . '/includes/header.php';
   <form method="POST" id="verify-form">
     <input type="hidden" name="verify" value="1">
     <label>Sisesta 4-kohaline kood</label>
-    <div style="display:flex; gap:1rem; margin:1.5rem auto; justify-content:center;">
-      <input type="text" name="d1" id="d1" maxlength="1" inputmode="numeric"
-             style="width:4.5rem; height:5rem; font-size:2.5rem; text-align:center; border:2px solid #ccc; border-radius:12px;">
-      <input type="text" name="d2" id="d2" maxlength="1" inputmode="numeric"
-             style="width:4.5rem; height:5rem; font-size:2.5rem; text-align:center; border:2px solid #ccc; border-radius:12px;">
-      <input type="text" name="d3" id="d3" maxlength="1" inputmode="numeric"
-             style="width:4.5rem; height:5rem; font-size:2.5rem; text-align:center; border:2px solid #ccc; border-radius:12px;">
-      <input type="text" name="d4" id="d4" maxlength="1" inputmode="numeric"
-             style="width:4.5rem; height:5rem; font-size:2.5rem; text-align:center; border:2px solid #ccc; border-radius:12px;">
+    <div class="code-inputs">
+      <input type="text" name="d1" id="d1" maxlength="1" inputmode="numeric">
+      <input type="text" name="d2" id="d2" maxlength="1" inputmode="numeric">
+      <input type="text" name="d3" id="d3" maxlength="1" inputmode="numeric">
+      <input type="text" name="d4" id="d4" maxlength="1" inputmode="numeric">
     </div>
     <button class="btn" type="submit">Kinnita</button>
   </form>
